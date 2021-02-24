@@ -23,7 +23,8 @@ def main
 
           # thumbs
           #
-          # generate_dual_key_rule("space", "space", ""),
+          generate_dual_key_rule('spacebar', 'spacebar', 'left_shift'),
+          #
           # generate_dual_key_rule("left_command", "tab", ""),
           # generate_dual_key_rule("right_command", "enter", ""),
 
@@ -40,7 +41,9 @@ def main
           # remappings
           generate_single_key_rule('caps_lock', 'escape'), # cntrl work around
           generate_single_key_rule('left_command', 'tab'),
-          generate_single_key_rule('right_command', 'enter'),
+          generate_single_key_rule('right_command', 'return_or_enter'),
+          generate_single_key_rule('left_shift', 'delete_or_backspace'),
+          generate_single_key_rule('right_shift', 'delete_or_backspace'),
         ],
       },
     ]
