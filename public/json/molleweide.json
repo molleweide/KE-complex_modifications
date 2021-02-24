@@ -28,8 +28,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
@@ -53,8 +53,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
@@ -78,8 +78,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
@@ -103,8 +103,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
@@ -128,8 +128,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
@@ -153,8 +153,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
@@ -178,8 +178,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
@@ -203,8 +203,8 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 300
+            "basic.to_if_alone_timeout_milliseconds": 135,
+            "basic.to_if_held_down_threshold_milliseconds": 135
           }
         },
         {
