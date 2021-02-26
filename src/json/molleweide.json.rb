@@ -22,7 +22,6 @@ def main
         'manipulators' => [
 
           # thumbs
-          #
           generate_dual_key_rule('spacebar', 'spacebar', 'left_shift'),
           #
           # generate_dual_key_rule("left_command", "tab", ""),
@@ -88,5 +87,61 @@ def generate_single_key_rule(input, output)
     ],
   }
 end
+
+def layer_toggle() end
+
+def single_switch_to_layer() end
+
+def dual_key_hold_layer
+  [
+    # option+n -> control+page_down
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'n',
+        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
+      },
+      'to' => [
+        {
+          'key_code' => 'page_down',
+          'modifiers' => ['left_control'],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(['visual_studio_code']),
+      ],
+    },
+    # option+p -> control+page_up
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'p',
+        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
+      },
+      'to' => [
+        {
+          'key_code' => 'page_up',
+          'modifiers' => ['left_control'],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(['visual_studio_code']),
+      ],
+    },
+    # disable control+t
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 't',
+        'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
+      },
+      'conditions' => [
+        Karabiner.frontmost_application_if(['visual_studio_code']),
+      ],
+    },
+  ]
+end
+
+def LAYER_space_down; end
 
 main
