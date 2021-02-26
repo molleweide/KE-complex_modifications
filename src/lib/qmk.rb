@@ -1,6 +1,40 @@
+# karabiner qmk mirror functions
+#
+# I have browsed through the code and compiled
+# some of the functionality that I like to be able
+# mirror my qmk keyboard. Feel free to help me out and
+# give me instructions on how to make this fit into the project
+# if you find that this is a good idea. I am completely
+# new to ruby lang so there might be a smarter way of putting
+# this together.
+#
+# My goal is to have my laptop feel exactly as if I was
+# using my split qmk keyboards
+#
+#
 # todo
 #
-# add if layer variable
+#
+#
+# - dual/single map
+#     check for state variables
+
+require_relative './karabiner'
+
+PARAMETERS = {
+  :to_if_alone_timeout_milliseconds => 135,
+  :to_delayed_action_delay_milliseconds => 0,
+  :to_if_held_down_threshold_milliseconds => 135,
+  :simultaneous_threshold_milliseconds => 300,
+}.freeze
+
+# todo
+#
+# test if this function works
+def QMK_SET_LAYER(value)
+  Karabiner.set_variable('QMK_LAYER, value)
+end
+
 def generate_dual_key_rule(input, alone, held_down)
   {
     'type' => 'basic',
@@ -32,7 +66,7 @@ def generate_single_key_rule(input, output)
       'key_code' => input,
       'modifiers' => { 'optional' => ['any'] },
     },
-    'to' =>[
+    'to' => [
       {
         'key_code' => output,
       },
@@ -40,107 +74,33 @@ def generate_single_key_rule(input, output)
   }
 end
 
-def layer_toggle() end
-
-def single_switch_to_layer() end
-
-def dual_key_hold_layer
-  [
-    # option+n -> control+page_down
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'n',
-        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
+def QMK_HOLD_DOWN_ACTIVATE_STATE(qmk_from_layer, input, alone, qmk_to_layer)
+  {
+    'type' => 'basic',
+    'conditions' => [
+      {
+        'type' => 'variable_if',
+        'name' => 'QMK_LAYER',
+        'value' => qmk_from_layer,
       },
-      'to' => [
-        {
-          'key_code' => 'page_down',
-          'modifiers' => ['left_control'],
-        },
-      ],
-      'conditions' => [
-        Karabiner.frontmost_application_if(['visual_studio_code']),
-      ],
+    'from' => {
+      'key_code' => input,
+      'modifiers' => { 'optional' => ['any'] },
     },
-    # option+p -> control+page_up
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'p',
-        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
+    'to_if_alone' => [
+      {
+        'key_code' => alone,
       },
-      'to' => [
-        {
-          'key_code' => 'page_up',
-          'modifiers' => ['left_control'],
-        },
-      ],
-      'conditions' => [
-        Karabiner.frontmost_application_if(['visual_studio_code']),
-      ],
+    ],
+    'to_if_held_down' => [
+      Karabiner.set_variable('QMK_LAYER', qmk_to_layer),
+    ],
+    'to_after_key_up' => [
+      Karabiner.set_variable('QMK_LAYER', qmk_from_layer),
+    ],
+    'parameters' => {
+      'basic.to_if_alone_timeout_milliseconds' => PARAMETERS[:to_if_alone_timeout_milliseconds],
+      'basic.to_if_held_down_threshold_milliseconds' => PARAMETERS[:to_if_held_down_threshold_milliseconds],
     },
-    # disable control+t
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 't',
-        'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
-      },
-      'conditions' => [
-        Karabiner.frontmost_application_if(['visual_studio_code']),
-      ],
-    },
-  ]
+  }
 end
-
-def LAYER_space_down; end
-
-main
-
-<%# -------------------------------------------------- %>
-<%# press spacebar to enter TouchCursor Mode, release to quit %>
-<%# -------------------------------------------------- %>
-{
-    "type": "basic",
-    "from": <%= from("spacebar", [], ["caps_lock"]) %>,
-    "to": [
-        { "set_variable": { "name": "touchcursor_extended_mode", "value": 1 } }
-    ],
-    "to_if_alone": <%= to([["spacebar"]]) %>,
-    "to_after_key_up": [
-        { "set_variable": { "name": "touchcursor_extended_mode", "value": 0 } }
-    ]
-},
-<%# -------------------------------------------------- %>
-<%# press esc to enter vimium mode, i to leave %>
-<%# -------------------------------------------------- %>
-{
-    "type": "basic",
-    "from": <%= from("escape", [], ["caps_lock"]) %>,
-    "to": [
-        { "set_variable": { "name": "vimium", "value": 1 } }
-    ],
-    "conditions": [
-        { "type": "variable_if", "name": "vimium", "value": 0 }
-    ]
-},
-{
-    "type": "basic",
-    "from": <%= from("escape", [], ["caps_lock"]) %>,
-    "to": <%= to([["escape"]]) %>,
-    "conditions": [
-        { "type": "variable_if", "name": "vimium", "value": 1 }
-    ]
-},
-{
-    "type": "basic",
-    "from": <%= from("i", [], ["caps_lock"]) %>,
-    "to": [
-        { "set_variable": { "name": "vimium", "value": 0 } }
-    ],
-    "conditions": [
-        { "type": "variable_if", "name": "vimium", "value": 1 }
-    ]
-},
-
