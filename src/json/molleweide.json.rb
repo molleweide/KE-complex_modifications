@@ -34,8 +34,7 @@ def main
           #################
 
           # thumbs
-          QMK.generate_dual_key_rule('spacebar', 'spacebar', 'left_shift'),
-          #
+          # QMK.generate_dual_key_rule('spacebar', 'spacebar', 'left_shift'),
           # generate_dual_key_rule("left_command", "tab", ""),
           # generate_dual_key_rule("right_command", "enter", ""),
 
@@ -63,16 +62,16 @@ def main
           QMK.STATE_HOLD_ACTIVATE('STATE_HOLD_SPACE', 'spacebar', 'spacebar'),
 
           # homerow left
-          QMK.DUAL_W_STATE('STATE_HOLD_SPACE', 'a', 'escape', 'left_control'),
-          QMK.DUAL_W_STATE('STATE_HOLD_SPACE', 's', 'tab', 'left_shift'),
-          QMK.DUAL_W_STATE('STATE_HOLD_SPACE', 'd', 'return_or_enter', 'left_option'),
-          QMK.DUAL_W_STATE('STATE_HOLD_SPACE', 'f', 'delete_or_backspace', 'left_command'),
+          QMK.DUAL_KEY('STATE_HOLD_SPACE', 'a', 'escape', 'left_control'),
+          QMK.DUAL_KEY('STATE_HOLD_SPACE', 's', 'tab', 'left_shift'),
+          QMK.DUAL_KEY('STATE_HOLD_SPACE', 'd', 'return_or_enter', 'left_option'),
+          QMK.DUAL_KEY('STATE_HOLD_SPACE', 'f', 'delete_or_backspace', 'left_command'),
 
           # vi arrows
-          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'h', 'left_arrow'),
-          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'j', 'down_arrow'),
-          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'k', 'up_arrow'),
-          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'l', 'right_arrow'),
+          QMK.SINGLE_KEY('STATE_HOLD_SPACE', 'h', 'left_arrow'),
+          QMK.SINGLE_KEY('STATE_HOLD_SPACE', 'j', 'down_arrow'),
+          QMK.SINGLE_KEY('STATE_HOLD_SPACE', 'k', 'up_arrow'),
+          QMK.SINGLE_KEY('STATE_HOLD_SPACE', 'l', 'right_arrow'),
 
         ],
       },

@@ -2,10 +2,6 @@
 # frozen_string_literal: true
 
 # Helper methods for using layers like with QMK
-#
-# TODO
-#
-# test if this function works
 
 require_relative './karabiner'
 
@@ -17,9 +13,9 @@ module QMK
     :simultaneous_threshold_milliseconds => 300,
   }.freeze
 
-  def self.QMK_SET_LAYER(value)
-    Karabiner.set_variable('QMK_LAYER', value)
-  end
+  # def self.QMK_SET_LAYER(value)
+  #   Karabiner.set_variable('QMK_LAYER', value)
+  # end
 
   def self.generate_dual_key_rule(input, alone, held_down)
     {
@@ -60,7 +56,7 @@ module QMK
     }
   end
 
-  def self.SINGLE_W_STATE(state_name, input, output)
+  def self.SINGLE_KEY(state_name, input, output)
     {
       'type' => 'basic',
       'conditions' => [
@@ -82,7 +78,7 @@ module QMK
     }
   end
 
-  def self.DUAL_W_STATE(state_name, input, alone, held_down)
+  def self.DUAL_KEY(state_name, input, alone, held_down)
     {
       'type' => 'basic',
       'conditions' => [
@@ -130,38 +126,6 @@ module QMK
       ],
       'to_after_key_up' => [
         Karabiner.set_variable(state_name, 0),
-      ],
-      'parameters' => {
-        'basic.to_if_alone_timeout_milliseconds' => PARAMETERS[:to_if_alone_timeout_milliseconds],
-        'basic.to_if_held_down_threshold_milliseconds' => PARAMETERS[:to_if_held_down_threshold_milliseconds],
-      },
-    }
-  end
-
-  def self.QMK_HOLD_DOWN_ACTIVATE_LAYER(qmk_from_layer, input, alone, qmk_to_layer)
-    {
-      'type' => 'basic',
-      'conditions' => [
-        {
-          'type' => 'variable_if',
-          'name' => 'QMK_LAYER',
-          'value' => qmk_from_layer,
-        },
-      ],
-      'from' => {
-        'key_code' => input,
-        'modifiers' => { 'optional' => ['any'] },
-      },
-      'to_if_alone' => [
-        {
-          'key_code' => alone,
-        },
-      ],
-      'to_if_held_down' => [
-        Karabiner.set_variable('QMK_LAYER', qmk_to_layer),
-      ],
-      'to_after_key_up' => [
-        Karabiner.set_variable('QMK_LAYER', qmk_from_layer),
       ],
       'parameters' => {
         'basic.to_if_alone_timeout_milliseconds' => PARAMETERS[:to_if_alone_timeout_milliseconds],

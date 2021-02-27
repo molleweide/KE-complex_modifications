@@ -10,31 +10,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "spacebar"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_shift"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 135,
-            "basic.to_if_held_down_threshold_milliseconds": 135
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "a",
             "modifiers": {
               "optional": [
