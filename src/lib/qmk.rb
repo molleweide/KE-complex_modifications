@@ -113,7 +113,7 @@ module QMK
     }
   end
 
-  def self.STATE_HOLD_ACTIVATE(input, alone, state_name)
+  def self.STATE_HOLD_ACTIVATE(state_name, input, alone)
     {
       'type' => 'basic',
       'from' => {
