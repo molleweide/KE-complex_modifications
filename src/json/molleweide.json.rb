@@ -1,13 +1,20 @@
 #!/usr/bin/env ruby
 
-# inspired by marlonrichert "dual_keys" layout
+#
+# should i use layers or states
+#
+#
+# TODO
+#
+# - add layer variables
+#
+# - test variable_if and `variable_unless`
 
-PARAMETERS = {
-  :to_if_alone_timeout_milliseconds => 135,
-  :to_delayed_action_delay_milliseconds => 0,
-  :to_if_held_down_threshold_milliseconds => 135,
-  :simultaneous_threshold_milliseconds => 300,
-}.freeze
+# STATES = {
+#   BASE => 0,
+#   nds => 3,
+#   nds => 4,
+# }.freeze
 
 require 'json'
 require_relative '../lib/karabiner'
@@ -52,9 +59,20 @@ def main
           ###############################################
           # hold down space activate layer 'BASE_SPACE' #
           ###############################################
-          QMK_HOLD_DOWN_ACTIVATE_STATE('base', 'spacebar', 'spacebar', 'BASE_SPACE'),
 
-          # generate_
+          QMK.STATE_HOLD_ACTIVATE('STATE_HOLD_SPACE', 'spacebar', 'spacebar'),
+
+          # homerow left
+          QMK.DUAL_W_STATE('a', 'a', 'left_control'),
+          QMK.DUAL_W_STATE('s', 's', 'left_shift'),
+          QMK.DUAL_W_STATE('d', 'd', 'left_option'),
+          QMK.DUAL_W_STATE('f', 'f', 'left_command'),
+
+          # vi arrows
+          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'h', 'left_arrow'),
+          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'j', 'down_arrow'),
+          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'k', 'up_arrow'),
+          QMK.SINGLE_W_STATE('STATE_HOLD_SPACE', 'l', 'right_arrow'),
 
         ],
       },
