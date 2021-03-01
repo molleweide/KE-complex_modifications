@@ -1,11 +1,9 @@
-#!/usr/bin/env ruby
 # frozen_string_literal: true
-
-# Helper methods for using layers like with QMK
 
 require_relative './karabiner'
 
-module QMK
+# Helper module for using creating states/layers easilly.
+module Layers
   PARAMETERS = {
     :to_if_alone_timeout_milliseconds => 135,
     :to_delayed_action_delay_milliseconds => 0,

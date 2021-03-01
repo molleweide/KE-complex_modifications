@@ -21,6 +21,7 @@ module Karabiner
       '^com\.microsoft\.Edge', # prefix
       '^com\.google\.Chrome$',
       '^com\.apple\.Safari$',
+      # TODO: add brave here
     ],
 
     :eclipse => [
