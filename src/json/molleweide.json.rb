@@ -48,6 +48,7 @@ def main
           Layers.generate_single_key_rule('x', 'c'),
           Layers.generate_single_key_rule('c', 'v'),
           Layers.generate_single_key_rule('v', 'b'),
+          Layers.generate_single_key_rule('b', 'delete_or_backspace'),
 
           Layers.generate_single_key_rule('right_shift', 'delete_or_backspace'),
 
