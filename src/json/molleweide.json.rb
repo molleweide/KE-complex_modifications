@@ -23,25 +23,20 @@ def main
           # LAYER -> BASE (use no variable? hmm..) #
           ##########################################
 
-          # top ::::::::::::::::::::::::::::::::::::
+          # TOP ::::::::::::::::::::::::::::::::::::
 
-          # middle :::::::::::::::::::::::::::::::::
-
+          # MIDDLE | HOMEROW :::::::::::::::::::::::
           Layers.generate_single_key_rule('caps_lock', 'escape'),
-
           Layers.generate_dual_key_rule('a', 'a', 'left_control'),
           Layers.generate_dual_key_rule('s', 's', 'left_shift'),
           Layers.generate_dual_key_rule('d', 'd', 'left_option'),
           Layers.generate_dual_key_rule('f', 'f', 'left_command'),
-
           Layers.generate_dual_key_rule('j', 'j', 'right_command'),
           Layers.generate_dual_key_rule('k', 'k', 'right_option'),
           Layers.generate_dual_key_rule('l', 'l', 'right_shift'),
           Layers.generate_dual_key_rule('semicolon', 'semicolon', 'right_control'),
 
-          # bottom :::::::::::::::::::::::::::::::::
-
-          # `zxcv
+          # BOTTOM :::::::::::::::::::::::::::::::::
           Layers.generate_single_key_rule('left_shift', 'grave_accent_and_tilde'),
           Layers.generate_single_key_rule('grave_accent_and_tilde', 'z'),
           Layers.generate_single_key_rule('z', 'x'),
@@ -49,11 +44,9 @@ def main
           Layers.generate_single_key_rule('c', 'v'),
           Layers.generate_single_key_rule('v', 'b'),
           Layers.generate_single_key_rule('b', 'delete_or_backspace'),
-
           Layers.generate_single_key_rule('right_shift', 'delete_or_backspace'),
 
-          # bottom | thumbs ::::::::::::::::::::::::
-
+          # THUMBS :::::::::::::::::::::::::::::::::
           Layers.STATE_HOLD_ACTIVATE('STATE_HOLD_SPACE', 'spacebar', 'spacebar'),
           Layers.generate_dual_key_rule('left_command', 'tab', 'left_command'),
           Layers.generate_dual_key_rule('right_command', 'return_or_enter', 'right_command'),
