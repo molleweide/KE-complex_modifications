@@ -6,7 +6,7 @@ require_relative '../lib/layers'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'molleweide personal w/modrows',
+    'title' => 'molleweide personal without dual keys on main rows',
     'maintainers' => ['molleweide'],
     'rules' => [
       {

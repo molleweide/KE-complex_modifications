@@ -1,7 +1,7 @@
 {
   "name": "scrobbedyyiu",
   "version": "1.0.0",
-  "description": "custom rules and keymaps for karabiner",
+  "description": "KE complex gulp ",
   "main": "gulpfile.js",
   "scripts": {
     "test": "test"
@@ -11,6 +11,13 @@
   "dependencies": {
     "gulp": "^4.0.0",
     "gulp-run-command": "0.0.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/molleweide/KE-complex_modifications.git"
+  },
+  "bugs": {
+    "url": "https://github.com/molleweide/KE-complex_modifications/issues"
+  },
+  "homepage": "https://github.com/molleweide/KE-complex_modifications#readme"
 }
-
