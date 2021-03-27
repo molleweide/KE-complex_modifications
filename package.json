@@ -1,0 +1,16 @@
+{
+  "name": "scrobbedyyiu",
+  "version": "1.0.0",
+  "description": "custom rules and keymaps for karabiner",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "molleweide",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "gulp-run-command": "0.0.9"
+  }
+}
+
