@@ -1,16 +1,11 @@
 const gulp = require("gulp");
 const run = require("gulp-run-command").default;
 
-// const ROOT_DIR = "./"; // unnecessary since we run in root
-
-// watch layout files
-// const WATCH_DIR = "./src/json/mollew****?";
+const WATCH_DIR = "./src/json/*";
 
 
-// const BUILD_CMD          = `make`;
-
-// copy based on bulk regex mollew**
-// const COPY_MOLLEW_CMD    = `cp public/json/molleweide.json ~/.config/karabiner/assets/complex_modifications`;
+const BUILD_CMD          = `make`;
+const COPY_MOLLEW_CMD    = `cp public/json/molleweide.json ~/.config/karabiner/assets/complex_modifications`;
 // const COPY_MOLL_NDK_CMD  = `cp public/json/molleweide_ndk.json ~/.config/karabiner/assets/complex_modifications`;
 
 gulp.task("copy_moll", run(COPY_MOLLEW_CMD));
@@ -23,7 +18,7 @@ gulp.task("copy_moll_ndk", run(COPY_MOLL_NDK_CMD));
        ignoreErrors: true,
      }),
      "copy_moll",
-     "copy_moll_ndk",
+     // "copy_moll_ndk",
    )
  );
 
