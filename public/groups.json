@@ -8,6 +8,9 @@
           "path": "json/molleweide.json"
         },
         {
+          "path": "json/molleweide_no_dual_keys.json"
+        },
+        {
           "path": "json/bepo-cmdqwerty-toggle.json"
         },
         {

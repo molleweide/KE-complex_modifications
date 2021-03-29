@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "molleweide personal",
+      "description": "molleweide personal w/modrows",
       "manipulators": [
         {
           "type": "basic",

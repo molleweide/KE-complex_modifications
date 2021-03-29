@@ -10,7 +10,7 @@ def main
     'maintainers' => ['molleweide'],
     'rules' => [
       {
-        'description' => 'molleweide personal',
+        'description' => 'molleweide personal w/modrows',
         'manipulators' => [
 
           # todo
